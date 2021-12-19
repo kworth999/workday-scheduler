@@ -20,5 +20,20 @@ function generateArray(){
         else {
             hour = i + "pm"; //12pm
         }
+
+        //Define empty object for the current loop iteration
+        let hourObj = {};
+
+        //Add object property for the current iteration's hour, ie. "time: 8am" etc.
+        hourObj.time = hour;
+
+        //Add empty task property for the current iteration's hour --this will be filled when input is received and saved
+        hourObj.task ="";
+
+        //Push the current iteration's object into the taskArray
+        taskArray.push(hourObj);
+
+        //Store the taskArray to local storage 
+        localStorage.setItem("taskArray", JSON.stringify(taskArray));
     }
 }
