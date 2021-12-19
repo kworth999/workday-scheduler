@@ -1,0 +1,16 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1;
+}
+
+textarea{
+    background: transparent;
+    border: none;
+    resize: none;
+    color: #2b2b2b;
+    border-left: 1 px solid black;
+    padding: 10px;
+}
+
+.jumbotron 
