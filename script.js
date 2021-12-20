@@ -67,7 +67,7 @@ function calendar() {
         timeBlock.append(hourDisplay);
 
         //Task input field
-        let taskBlock = $("<textarea").attr("placeholder", "Add task...").attr("cols", "40").attr("id", hourVal);
+        let taskBlock = $("<textarea>").attr("placeholder", "Add task...").attr("cols", "40").attr("id", hourVal);
         taskBlock.text(taskArray[index].task);
         timeBlock.append(taskBlock);
 
