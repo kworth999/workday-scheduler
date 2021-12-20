@@ -1,9 +1,9 @@
 //Global variables
     //Pseudonym for current day in header
-    var today = $('#currentDay')
+    var today = $("#currentDay")
 
     //Get existing saved tasks from local storage or create empty array
-    var taskArray = JSON.parse(localstorage.getItem("taskArray")) || [];
+    var taskArray = JSON.parse(localStorage.getItem("taskArray")) || [];
 
 //Function to generate array of hour objects with empty tasks
 function generateArray(){
@@ -48,7 +48,7 @@ function calendar() {
 
     //Show current day in the header
     let currentDay = moment().format("MMMM DD, YYYY");
-    let currentDate = $("<span>").addclass("date");
+    let currentDate = $("<span>").addClass("date");
     currentDate.text(currentDay);
     today.append(currentDate);
 
@@ -56,12 +56,12 @@ function calendar() {
     for (let index = 0; index < taskArray.length; index++) {
 
         //Main row container
-        let timeBlock = $("<div").addClass("time-block row");
+        let timeBlock = $("<div>").addClass("time-block row");
         $(".container").append(timeBlock);
 
         //Hour display
         let hourVal = (taskArray[index].time);
-        let hourDisplay = $("<div").addClass("hour").attr("data-value", "hour" + index);
+        let hourDisplay = $("<div>").addClass("hour").attr("data-value", "hour" + index);
         let hourLabel = $("<span>").attr("display", "inline-block").attr("vertical-align", "middle").text(hourVal);
         hourDisplay.append(hourLabel);
         timeBlock.append(hourDisplay);
@@ -83,17 +83,22 @@ function calendar() {
         //Get current hour in 24-hour format
         let currentHourRaw = moment().format("H");
 
-        //Update text-area styling with the 'present' class for the row that corresponds to the current hour and append live save button
+        //Update textarea styling with the 'present' class for the row that corresponds to the current hour and append live save button
         if (currentHourRaw == hourFull) {
             taskBlock.addClass("present");
             timeBlock.append(saveButton);
         }
 
-        //Update text-area styling with the 'past' class for any rows that correspond to past hours and disabled save button
+        //Update textarea styling with the 'past' class for any rows that correspond to past hours and disabled save button
         else if (currentHourRaw > hourFull) {
             taskBlock.addClass("past");
             taskBlock.removeAttr("placeholder");
             timeBlock.append(disabledSave);
+        }
+
+        else {
+            taskBlock.addClass("future");
+            timeBlock.append(saveButton);
         }
     
     }
