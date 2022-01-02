@@ -13,5 +13,4 @@ An app deisgned to help organize daily tasks for better productivity
 3. If you make a mistake, edit the time slot of your choice. If you want to reset the whole app, go to the top of the page and press Reset.
 
 # Deployed URL 
-
-
+https://kworth999.github.io/workday-scheduler/
